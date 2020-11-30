@@ -6,7 +6,7 @@ const get_login = async({render}) => {
   render('login.ejs')
 };
 
-const post_login = async({request, response, session}) => {
+const post_login = async({request, response, render, session}) => {
   const body = request.body();
   const params = await body.value;
 
@@ -16,8 +16,8 @@ const post_login = async({request, response, session}) => {
   // check if the email exists in the database
   const res = await executeQuery("SELECT * FROM users WHERE email = $1;", email);
   if (res.rowCount === 0) {
-      response.status = 401;
-      return;
+    render('/login.ejs', {error: "Invalid email or password"})
+    return;
   }
 
   // take the first row from the results
@@ -27,14 +27,14 @@ const post_login = async({request, response, session}) => {
 
   const passwordCorrect = await bcrypt.compare(password, hash);
   if (!passwordCorrect) {
-      response.status = 401;
-      return;
+    render('/login.ejs', {error: "Invalid email or password"})
+    return;
   }
 
   await session.set('authenticated', true);
   await session.set('user', {
-      id: userObj.id,
-      email: userObj.email
+    id: userObj.id,
+    email: userObj.email
   });
   await session.set('msg', 'Login successful')
   response.redirect('/')

@@ -3,6 +3,10 @@
   <%- include('./partials/head.ejs') %>
   <body>
 
+    <%
+    var error = error ? error : ''
+    %>
+
     <h3>Login to the self-monitoring application</h3>
     <form method="POST" action="/auth/login">
       <label for="email">Email</label>
@@ -11,6 +15,9 @@
       <label for="password">Password</label>
       <input type="password" name="password" />
       <br>
+      <% if (error.length > 0) { %>
+        <p><%= error %></p>
+      <% } %>
       <input type="submit" value="Login" />
     </form>
 

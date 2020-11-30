@@ -2,6 +2,8 @@
 
 Self-monitoring app
 
+TODO: CSS, database credentials to env, Heroku
+
 ## Launching the server:
 
 `sh launch.sh`
