@@ -1,50 +1,52 @@
-<!DOCTYPE html>
-<html>
-  <%- include('./partials/head.ejs') %>
-  <body>
+<%- include('./partials/header.ejs') %>
 
-    <% 
-    var errors = errors ? errors : []
-    var d = new Date()
-    var day = d.getDate() < 10 
-              ? '0' + d.getDate() 
-              : d.getDate()
-    var month = d.getMonth() < 9 
-              ? '0' + (d.getMonth() + 1) 
-              : (d.getMonth() + 1)
-    var fulldate = d.getFullYear()+"-"+month+"-"+day
-    %>
+<% 
+var errors = errors ? errors : []
+var d = new Date()
+var day = d.getDate() < 10 
+          ? '0' + d.getDate() 
+          : d.getDate()
+var month = d.getMonth() < 9 
+          ? '0' + (d.getMonth() + 1) 
+          : (d.getMonth() + 1)
+var fulldate = d.getFullYear()+"-"+month+"-"+day
 
-    <h2>Evening report</h2>
-    <form method="POST" action="/behavior/reporting/evening">
+var date = date ? date : fulldate 
+var sports_time = sports_time ? sports_time: 0
+var study_time = study_time ? study_time : 0
+var eating = eating ? eating : 3
+var mood = mood ? mood : 3
+%>
 
-      <label for="date">Date</label>
-      <input type="date" name="date" value=<%= fulldate %>>
-      <%- include('partials/error.ejs', { errors: errors, attribute: 'date'}) %>
-      <br>
+<h2>Evening report</h2>
+<form method="POST" action="/behavior/reporting/evening">
 
-      <label for="sports_time">Time spent on sports and exercise (hours)</label>
-      <input type="number" name="sports_time" min="0" value="0" step="0.01">
-      <%- include('partials/error.ejs', { errors: errors, attribute: 'sports_time'}) %>
-      <br>
+  <label for="date">Date</label>
+  <input type="date" name="date" value="<%= date %>" >
+  <%- include('partials/error.ejs', { errors: errors, attribute: 'date'}) %>
+  <br>
 
-      <label for="study_time">Time spent studying (hours)</label>
-      <input type="number" name="sports_time" min="0" value="0" step="0.01">
-      <%- include('partials/error.ejs', { errors: errors, attribute: 'study_time'}) %>
-      <br>
+  <label for="sports_time">Time spent on sports and exercise (hours)</label>
+  <input type="number" name="sports_time" min="0" max="24" value="<%= sports_time %>" step="0.01">
+  <%- include('partials/error.ejs', { errors: errors, attribute: 'sports_time'}) %>
+  <br>
 
-      <label for="eating">Regularity and quality of eating (1=poor, 5=excellent)</label>
-      <%- include('partials/error.ejs', { errors: errors, attribute: 'eating'}) %>
-      <br>
-      1<input type="range" name="eating" min="1" max="5" value="3" step="1">5<br>
+  <label for="study_time">Time spent studying (hours)</label>
+  <input type="number" name="study_time" min="0" max="24" value="<%= study_time %>" step="0.01">
+  <%- include('partials/error.ejs', { errors: errors, attribute: 'study_time'}) %>
+  <br>
 
-      <label for="mood">Generic mood (1=poor, 5=excellent)</label>
-      <%- include('partials/error.ejs', { errors: errors, attribute: 'mood'}) %>
-      <br>
-      1<input type="range" name="mood" min="1" max="5" value="3" step="1">5<br>
-      
-      <input type="submit" value="Submit" />
-    </form>
+  <label for="eating">Regularity and quality of eating (1=poor, 5=excellent)</label>
+  <%- include('partials/error.ejs', { errors: errors, attribute: 'eating'}) %>
+  <br>
+  1<input type="range" name="eating" min="1" max="5" value="<%= eating %>" step="1">5<br>
 
-  </body>
-</html>
+  <label for="mood">Generic mood (1=poor, 5=excellent)</label>
+  <%- include('partials/error.ejs', { errors: errors, attribute: 'mood'}) %>
+  <br>
+  1<input type="range" name="mood" min="1" max="5" value="<%= mood %>" step="1">5<br>
+  
+  <input type="submit" value="Submit" />
+</form>
+
+<%- include('./partials/footer.ejs') %>

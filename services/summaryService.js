@@ -88,7 +88,7 @@ const getDaySummary = async(year, month, day) => {
   return summary
 }
 
-// Summary of specific users data for a specific day
+// Summary of specific users data for a specific week
 const getUserWeekSummary = async(user_id, year, week) => {
   var morning = await executeQuery(
     `SELECT AVG(hours_slept)::numeric(10,2) as average_sleep_duration, AVG(sleep_quality)::numeric(10,2) as average_sleep_quality, AVG(mood)::numeric(10,2) as average_mood_morning

@@ -1,26 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <%- include('./partials/head.ejs') %>
-  <body>
+<%- include('./partials/header.ejs') %>
 
-    <% const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
+<% const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
 
-    <h3>Personal monthly summary of  <%= month-1 < 0 ? "undefined" : monthNames[month-1] %> <%= year %></h3>
-    <p>Average sleep duration: <%= average_sleep_duration ? average_sleep_duration : "No data" %></p>
-    <p>Average sleep quality: <%= average_sleep_quality ? average_sleep_quality : "No data" %></p>
-    <p>Average time spent on sports and exercise: <%= average_sports_time ? average_sports_time : "No data" %></p>
-    <p>Average time spent studying: <%= average_study_time ? average_study_time : "No data" %></p>
-    <p>Average regularity and quality of eating: <%= average_eating_quality ? average_eating_quality : "No data" %></p>
-    <p>Average generic mood for the whole day: <%= average_mood_whole_day ? average_mood_whole_day : "No data" %></p>
-    <p>Average generic mood for the morning: <%= average_mood_morning ? average_mood_morning : "No data" %></p>
-    <p>Average generic mood for the evening: <%= average_mood_evening ? average_mood_evening : "No data" %></p>
-    <br>
-    
-    <h3>Change the month of the summary here</h3>
-    <form method="POST" action="/behavior/summary/monthly">
-      <input type="month" name="month" value=<%= year+"-"+(month < 10 ? '0'+month : month) %> />
-      <input type="submit" value="Change month" />
-    </form>
+<h3>Personal monthly summary of  <%= month-1 < 0 ? "undefined" : monthNames[month-1] %> <%= year %></h3>
+<p>Average sleep duration (hours): <%= average_sleep_duration ? average_sleep_duration : "No data" %></p>
+<p>Average sleep quality (1=poor, 5=excellent): <%= average_sleep_quality ? average_sleep_quality : "No data" %></p>
+<p>Average time spent on sports and exercise (hours): <%= average_sports_time ? average_sports_time : "No data" %></p>
+<p>Average time spent studying (hours): <%= average_study_time ? average_study_time : "No data" %></p>
+<p>Average regularity and quality of eating (1=poor, 5=excellent): <%= average_eating_quality ? average_eating_quality : "No data" %></p>
+<p>Average generic mood for the whole day (1=poor, 5=excellent): <%= average_mood_whole_day ? average_mood_whole_day : "No data" %></p>
+<p>Average generic mood for the morning (1=poor, 5=excellent): <%= average_mood_morning ? average_mood_morning : "No data" %></p>
+<p>Average generic mood for the evening (1=poor, 5=excellent): <%= average_mood_evening ? average_mood_evening : "No data" %></p>
+<br>
 
-  </body>
-</html>
+<h3>Change the month of the summary here</h3>
+<form method="POST" action="/behavior/summary/monthly">
+  <input type="month" name="month" value=<%= year+"-"+(month < 10 ? '0'+month : month) %> />
+  <input type="submit" value="Change month" />
+</form>
+
+<%- include('./partials/footer.ejs') %>

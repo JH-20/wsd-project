@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <%- include('./partials/head.ejs') %>
-  <body>
+<%- include('./partials/header.ejs') %>
 
-    <h2>Personal summaries</h2>
-    <p>Which summary would you like to see</p>
-    <form method="GET" action="/behavior/summary/weekly">
-      <input type="submit" value="Weekly" />
-    </form>
+<h2>Personal summaries</h2>
+<p>Which summary would you like to see</p>
+<form method="GET" action="/behavior/summary/weekly">
+  <input type="submit" value="Weekly" />
+</form>
 
-    <form method="GET" action="/behavior/summary/monthly">
-      <input type="submit" value="Monthly" />
-    </form>
+<form method="GET" action="/behavior/summary/monthly">
+  <input type="submit" value="Monthly" />
+</form>
 
-  </body>
-</html>
+<%- include('./partials/footer.ejs') %>

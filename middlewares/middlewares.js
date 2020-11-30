@@ -1,4 +1,5 @@
 import { send } from '../deps.js';
+import { Session } from '../deps.js';
 
 const errorMiddleware = async(context, next) => {
   try {
@@ -28,4 +29,12 @@ const serveStaticFilesMiddleware = async(context, next) => {
   }
 }
 
-export { errorMiddleware, requestTimingMiddleware, serveStaticFilesMiddleware };
+const authMiddleware = async({request, response, session}, next) => {
+  if (!request.url.pathname.startsWith('/auth') && !(await session.get('authenticated'))) {
+    response.redirect('/auth/login');
+  } else {
+    await next();
+  }
+};
+
+export { errorMiddleware, requestTimingMiddleware, serveStaticFilesMiddleware, authMiddleware };

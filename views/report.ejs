@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <%- include('./partials/head.ejs') %>
-  <body>
+<%- include('./partials/header.ejs') %>
 
-    <h2>Data report</h2>
-    <p>Which report would you like to submit</p>
-    <form method="GET" action="/behavior/reporting/morning">
-      <input type="submit" value="Morning" />
-    </form>
+<h2>Data report</h2>
+<p>Which report would you like to submit</p>
+<form method="GET" action="/behavior/reporting/morning">
+  <input type="submit" value="Morning" />
+</form>
 
-    <form method="GET" action="/behavior/reporting/evening">
-      <input type="submit" value="Evening" />
-    </form>
+<form method="GET" action="/behavior/reporting/evening">
+  <input type="submit" value="Evening" />
+</form>
 
-  </body>
-</html>
+<%- include('./partials/footer.ejs') %>
