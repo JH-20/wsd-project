@@ -1,11 +1,11 @@
+import { getSummary, getDaySummary } from '../../services/summaryService.js'
+
 const summary = async({response}) => {
-    // TODO
-    response.body = {summary: 'TODO'}
+    response.body = await getSummary()
 };
 
-const day_summary = async({response}) => {
-    // TODO
-    response.body = {day_summary: 'TODO'}
+const day_summary = async({response, params}) => {
+    response.body = await getDaySummary(params.year, params.month, params.day)
 };
    
 export { summary, day_summary };

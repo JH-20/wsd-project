@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/head.ejs') %>
+  <body>
+
+    <h2>Data report</h2>
+    <p>Which report would you like to submit</p>
+    <form method="GET" action="/behavior/reporting/morning">
+      <input type="submit" value="Morning" />
+    </form>
+
+    <form method="GET" action="/behavior/reporting/evening">
+      <input type="submit" value="Evening" />
+    </form>
+
+  </body>
+</html>

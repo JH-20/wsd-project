@@ -9,9 +9,18 @@ const router = new Router();
 router.get('/', get_root)
 
 router.get('/behavior/reporting', behaviourC.get_report)
-router.post('/behavior/reporting', behaviourC.post_report)
+
+router.get('/behavior/reporting/morning', behaviourC.get_report_m)
+router.post('/behavior/reporting/morning', behaviourC.post_report_m)
+router.get('/behavior/reporting/evening', behaviourC.get_report_e)
+router.post('/behavior/reporting/evening', behaviourC.post_report_e)
 
 router.get('/behavior/summary', behaviourC.get_summary)
+
+router.get('/behavior/summary/weekly', behaviourC.get_summary_weekly)
+router.post('/behavior/summary/weekly', behaviourC.post_summary_weekly)
+router.get('/behavior/summary/monthly', behaviourC.get_summary_monthly)
+router.post('/behavior/summary/monthly', behaviourC.post_summary_monthly)
 
 router.get('/auth/login', authC.get_login)
 router.post('/auth/login', authC.post_login)

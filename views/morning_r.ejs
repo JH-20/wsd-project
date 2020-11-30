@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/head.ejs') %>
+  <body>
+
+    <% 
+    var errors = errors ? errors : []
+    var d = new Date()
+    var day = d.getDate() < 10 
+              ? '0' + d.getDate() 
+              : d.getDate()
+    var month = d.getMonth() < 9 
+              ? '0' + (d.getMonth() + 1) 
+              : (d.getMonth() + 1)
+    var fulldate = d.getFullYear()+"-"+month+"-"+day
+    %>
+
+    <h2>Morning report</h2>
+    <form method="POST" action="/behavior/reporting/morning">
+      <label for="date">Date</label>
+      <input type="date" name="date" value=<%= fulldate %>>
+      <%- include('partials/error.ejs', { errors: errors, attribute: 'date'}) %>
+      <br>
+
+      <label for="hours_slept">Hours slept</label>
+      <input type="number" name="hours_slept" min="0" value="0" step="0.01">
+      <%- include('partials/error.ejs', { errors: errors, attribute: 'hours_slept'}) %>
+      <br>
+
+      <label for="sleep_quality">Sleep quality (1=poor, 5=excellent)</label>
+      <%- include('partials/error.ejs', { errors: errors, attribute: 'sleep_quality'}) %>
+      <br>
+      1<input type="range" name="sleep_quality" min="1" max="5" value="3" step="1">5<br>
+
+      <label for="mood">Generic mood (1=poor, 5=excellent)</label>
+      <%- include('partials/error.ejs', { errors: errors, attribute: 'mood'}) %>
+      <br>
+      1<input type="range" name="mood" min="1" max="5" value="3" step="1">5<br>
+      
+      <input type="submit" value="Submit" />
+    </form>
+
+  </body>
+</html>
