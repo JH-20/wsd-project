@@ -1,34 +1,34 @@
-<!DOCTYPE html>
-<html>
-  <%- include('./partials/head.ejs') %>
-  <body>
+<%- include('./partials/header.ejs') %>
 
-    <% 
-    var errors = errors ? errors : []
-    var email = email ? email : "" 
-    %>
+<div class="container">
 
-    <h3>Register an account for the self-monitoring application</h3>
-    <form method="POST" action="/auth/registration">
-      <label for="email">Email</label>
-      <input type="email" name="email" value="<%= email %>" />
-      <%- include('partials/error.ejs', { errors: errors, attribute: 'email'}) %>
-      <br>
-      <label for="password">Password</label>
-      <input type="password" name="password" />
-      <%- include('partials/error.ejs', { errors: errors, attribute: 'password'}) %>
-      <br>
-      <label for="verification">Verify the password by typing it again</label>
-      <input type="password" name="verification" />
-      <%- include('partials/error.ejs', { errors: errors, attribute: 'verification'}) %>
-      <br>
-      <input type="submit" value="Submit" />
-    </form>
+<% 
+var errors = errors ? errors : []
+var email = email ? email : "" 
+%>
 
-    <h3>Already have an account? Login here!</h3>
-    <form method="GET" action="/auth/login">
-      <input type="submit" value="Login" />
-    </form>
+<h3>Register an account for the self-monitoring application</h3>
+<form method="POST" action="/auth/registration">
+  <label for="email">Email</label>
+  <input type="email" name="email" value="<%= email %>" />
+  <%- include('partials/error.ejs', { errors: errors, attribute: 'email'}) %>
+  <br>
+  <label for="password">Password</label>
+  <input type="password" name="password" />
+  <%- include('partials/error.ejs', { errors: errors, attribute: 'password'}) %>
+  <br>
+  <label for="verification">Verify the password by typing it again</label>
+  <input type="password" name="verification" />
+  <%- include('partials/error.ejs', { errors: errors, attribute: 'verification'}) %>
+  <br>
+  <input type="submit" value="Submit" />
+</form>
 
-  </body>
-</html>
+<h3>Already have an account? Login here!</h3>
+<form method="GET" action="/auth/login">
+  <input type="submit" value="Login" />
+</form>
+
+</div>
+
+<%- include('./partials/footer.ejs') %>

@@ -1,5 +1,13 @@
 <%- include('./partials/header.ejs') %>
 
+<div class="container">
+
+<div>
+  <form method="GET" action="/">
+    <input type="submit" value="Back to main menu" />
+  </form>
+</div>
+
 <h2>Data report</h2>
 <p>Which report would you like to submit</p>
 <form method="GET" action="/behavior/reporting/morning">
@@ -9,5 +17,7 @@
 <form method="GET" action="/behavior/reporting/evening">
   <input type="submit" value="Evening" />
 </form>
+
+</div>
 
 <%- include('./partials/footer.ejs') %>

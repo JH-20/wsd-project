@@ -1,5 +1,13 @@
 <%- include('./partials/header.ejs') %>
 
+<div class="container">
+
+<div>
+  <form method="GET" action="/">
+    <input type="submit" value="Back to main menu" />
+  </form>
+</div>
+
 <h3>Personal weekly summary of the week <%= week %> of <%= year %></h3>
 <p>Average sleep duration (hours): <%= average_sleep_duration ? average_sleep_duration : "No data" %></p>
 <p>Average sleep quality (1=poor, 5=excellent): <%= average_sleep_quality ? average_sleep_quality : "No data" %></p>
@@ -16,5 +24,7 @@
   <input type="week" name="week" value=<%= year+"-W"+week %> %> />
   <input type="submit" value="Change week" />
 </form>
+
+</div>
 
 <%- include('./partials/footer.ejs') %>

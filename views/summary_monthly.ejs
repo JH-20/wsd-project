@@ -1,5 +1,13 @@
 <%- include('./partials/header.ejs') %>
 
+<div class="container">
+
+<div>
+  <form method="GET" action="/">
+    <input type="submit" value="Back to main menu" />
+  </form>
+</div>
+
 <% const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
 
 <h3>Personal monthly summary of  <%= month-1 < 0 ? "undefined" : monthNames[month-1] %> <%= year %></h3>
@@ -18,5 +26,7 @@
   <input type="month" name="month" value=<%= year+"-"+(month < 10 ? '0'+month : month) %> />
   <input type="submit" value="Change month" />
 </form>
+
+</div>
 
 <%- include('./partials/footer.ejs') %>

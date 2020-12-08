@@ -1,48 +1,51 @@
-<!DOCTYPE html>
-<html>
-  <%- include('./partials/head.ejs') %>
-  <body>
+<%- include('./partials/header.ejs') %>
 
-    <%
-    var msg = msg ? msg : ''
-    %>
-    
-    <div>
-      <form method="POST" action="/auth/logout">
-        <input type="submit" value="Logout" />
-      </form>
-    </div>
+<div class="container">
 
-    <% if (msg.length > 0) { %>
-      <h2 class="message">Message: <%= msg %></h2>
-    <% } %>
 
-    <h1>Self-monitoring app</h1>
-    <p>This application is used to report and inspect personal daily behavior</p>
-    <br>
+<%
+var msg = msg ? msg : ''
+%>
 
-    <h3>Quick summary</h3>
-    <% if (average_mood_today && average_mood_yesterday) { %>
-      <p>Average mood for today (1=poor, 5=excellent): <%= average_mood_today %></p>
-      <p>Average mood for yesterday (1=poor, 5=excellent): <%= average_mood_yesterday %></p>
-      <p><%= average_mood_yesterday > average_mood_today ? "Things are looking gloomy today" : "Things are looking bright today" %></p>
-    <% } else { %>
-      <p>Not enough data for a quick summary.</p>
-    <% } %>
-    <br>
+<p>Logged in as: <%= email %></p>
 
-    <h3>Reporting data</h3>
-    <p>Click here to post a data report</p>
-    <form method="GET" action="/behavior/reporting">
-      <input type="submit" value="Report" />
-    </form>
-    <br>
+<div>
+  <form method="POST" action="/auth/logout">
+    <input type="submit" value="Logout" />
+  </form>
+</div>
 
-    <h3>Personal summary</h3>
-    <p>Click here to get the summary of your personal data</p>
-    <form method="GET" action="/behavior/summary">
-      <input type="submit" value="Summary" />
-    </form>
+<% if (msg.length > 0) { %>
+  <h2 class="message">Message: <%= msg %></h2>
+<% } %>
 
-  </body>
-</html>
+<h1>Self-monitoring app</h1>
+<p>This application is used to report and inspect personal daily behavior</p>
+<br>
+
+<h3>Quick summary</h3>
+<% if (average_mood_today && average_mood_yesterday) { %>
+  <p>Average mood for today (1=poor, 5=excellent): <%= average_mood_today %></p>
+  <p>Average mood for yesterday (1=poor, 5=excellent): <%= average_mood_yesterday %></p>
+  <p><%= average_mood_yesterday > average_mood_today ? "Things are looking gloomy today" : "Things are looking bright today" %></p>
+<% } else { %>
+  <p>Not enough data for a quick summary.</p>
+<% } %>
+<br>
+
+<h3>Reporting data</h3>
+<p>Click here to post a data report</p>
+<form method="GET" action="/behavior/reporting">
+  <input type="submit" value="Report" />
+</form>
+<br>
+
+<h3>Personal summary</h3>
+<p>Click here to get the summary of your personal data</p>
+<form method="GET" action="/behavior/summary">
+  <input type="submit" value="Summary" />
+</form>
+
+</div>
+
+<%- include('./partials/footer.ejs') %>

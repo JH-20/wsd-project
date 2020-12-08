@@ -24,10 +24,10 @@ const getDateFormated = (year, month, day) => {
 }
 
 // Summary of all user data
-const getSummary = async() => {
-  var morning = await executeQuery("SELECT AVG(hours_slept)::numeric(10,2) as average_sleep_duration, AVG(sleep_quality)::numeric(10,2) as average_sleep_quality, AVG(mood)::numeric(10,2) as average_mood_morning FROM morning_reports");
-  var evening = await executeQuery("SELECT AVG(sports_time)::numeric(10,2) as average_sports_time, AVG(study_time)::numeric(10,2) as average_study_time, AVG(eating)::numeric(10,2) as average_eating_quality, AVG(mood)::numeric(10,2) as average_mood_evening FROM evening_reports");
-  var totalmood = await executeQuery("SELECT AVG(mood)::numeric(10,2) as average_mood_whole_day FROM (SELECT mood, date FROM morning_reports UNION SELECT mood, date FROM evening_reports) as foo");
+const get7daySummary = async() => {
+  var morning = await executeQuery("SELECT AVG(hours_slept)::numeric(10,2) as average_sleep_duration, AVG(sleep_quality)::numeric(10,2) as average_sleep_quality, AVG(mood)::numeric(10,2) as average_mood_morning FROM morning_reports WHERE date > current_date - interval '7 days'");
+  var evening = await executeQuery("SELECT AVG(sports_time)::numeric(10,2) as average_sports_time, AVG(study_time)::numeric(10,2) as average_study_time, AVG(eating)::numeric(10,2) as average_eating_quality, AVG(mood)::numeric(10,2) as average_mood_evening FROM evening_reports WHERE date > current_date - interval '7 days'");
+  var totalmood = await executeQuery("SELECT AVG(mood)::numeric(10,2) as average_mood_whole_day FROM (SELECT mood, date FROM morning_reports UNION SELECT mood, date FROM evening_reports) as foo WHERE date > current_date - interval '7 days'");
   
   if (!morning || morning.rowCount === 0) {
     morning = null_morning
@@ -185,4 +185,4 @@ const getUserMood = async(user_id, year, month, day) => {
   return totalmood.average_mood_whole_day
 }
 
-export { getSummary, getDaySummary, getUserWeekSummary, getUserMonthSummary, getUserMood };
+export { get7daySummary, getDaySummary, getUserWeekSummary, getUserMonthSummary, getUserMood };

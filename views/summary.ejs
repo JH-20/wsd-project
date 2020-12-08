@@ -1,5 +1,13 @@
 <%- include('./partials/header.ejs') %>
 
+<div class="container">
+
+<div>
+  <form method="GET" action="/">
+    <input type="submit" value="Back to main menu" />
+  </form>
+</div>
+
 <h2>Personal summaries</h2>
 <p>Which summary would you like to see</p>
 <form method="GET" action="/behavior/summary/weekly">
@@ -9,5 +17,7 @@
 <form method="GET" action="/behavior/summary/monthly">
   <input type="submit" value="Monthly" />
 </form>
+
+</div>
 
 <%- include('./partials/footer.ejs') %>

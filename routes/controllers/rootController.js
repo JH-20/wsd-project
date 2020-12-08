@@ -14,7 +14,7 @@ const get_root = async({render, session}) => {
   const msg = await session.get('msg');
   await session.set('msg', '')
 
-  render('root.ejs', {msg: msg, average_mood_today: today, average_mood_yesterday: yesterday});
+  render('root.ejs', {email: user.email, msg: msg, average_mood_today: today, average_mood_yesterday: yesterday});
 };
  
 export { get_root };

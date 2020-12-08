@@ -1,5 +1,13 @@
 <%- include('./partials/header.ejs') %>
 
+<div class="container">
+
+<div>
+  <form method="GET" action="/">
+    <input type="submit" value="Back to main menu" />
+  </form>
+</div>
+
 <% 
 var errors = errors ? errors : []
 var d = new Date()
@@ -41,5 +49,7 @@ var mood = mood ? mood : 3
   
   <input type="submit" value="Submit" />
 </form>
+
+</div>
 
 <%- include('./partials/footer.ejs') %>

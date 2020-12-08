@@ -18,6 +18,14 @@ var eating = eating ? eating : 3
 var mood = mood ? mood : 3
 %>
 
+<div class="container">
+
+<div>
+  <form method="GET" action="/">
+    <input type="submit" value="Back to main menu" />
+  </form>
+</div>
+
 <h2>Evening report</h2>
 <form method="POST" action="/behavior/reporting/evening">
 
@@ -48,5 +56,7 @@ var mood = mood ? mood : 3
   
   <input type="submit" value="Submit" />
 </form>
+
+</div>
 
 <%- include('./partials/footer.ejs') %>

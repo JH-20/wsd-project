@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <%- include('./partials/head.ejs') %>
-  <body>
+<%- include('./partials/header.ejs') %>
 
-    <h2>Registration successful</h2>
+<div class="container">
 
-    <h4>Go to login</h4>
-    <form method="GET" action="/auth/login">
-      <input type="submit" value="Login" />
-    </form>
+<h2>Registration successful</h2>
 
-  </body>
-</html>
+<h4>Go to login</h4>
+<form method="GET" action="/auth/login">
+  <input type="submit" value="Login" />
+</form>
+
+</div>
+
+<%- include('./partials/footer.ejs') %>

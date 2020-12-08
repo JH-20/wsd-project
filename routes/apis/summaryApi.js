@@ -1,7 +1,7 @@
-import { getSummary, getDaySummary } from '../../services/summaryService.js'
+import { get7daySummary, getDaySummary } from '../../services/summaryService.js'
 
 const summary = async({response}) => {
-    response.body = await getSummary()
+    response.body = await get7daySummary()
 };
 
 const day_summary = async({response, params}) => {
