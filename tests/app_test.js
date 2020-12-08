@@ -7,6 +7,8 @@ import { authMiddleware } from "../middlewares/middlewares.js"
 
 console.log('---- Running tests ----')
 
+// STATUS CODE TESTS
+
 Deno.test("GET request to / should return status 200", async () => {
   const testClient = await superoak(app);
   await testClient.get("/").expect(200);
@@ -37,6 +39,8 @@ Deno.test("GET request to /api/summary/2020/12/1 should return status 200", asyn
   await testClient.get("/api/summary/2020/12/1").expect(200);
 });
 
+
+// RENDER TESTS
 
 var txt = ""
 
@@ -81,7 +85,7 @@ Deno.test("get_report_e should render the correct ejs file", async () => {
 });
 
 
-
+// ACCESS TESTS
 
 Deno.test("authMiddleware should not prevent unauthenticated access to URL starting with /api", async () => {
   var allowedAccess = false
