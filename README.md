@@ -18,7 +18,7 @@ I did not add complicated tests that would require a database access, because th
 
 First create a config.env file in the root of the application structure with the following lines filled with the correct information:
 
-(config.env is gitignored for security and the contents should not be shared publicly)
+(config.env should be gitignored for security and the contents should not be shared publicly)
 
 ```
 export DATABASE_URL=
@@ -40,6 +40,18 @@ Run the following lines in terminal with the correct information filled in:
 export DATABASE_URL=
 export PORT=
 sh launch.sh
+```
+
+If you get the following error, you have forgotten to set the environmental variables
+
+```
+Launching the app with:
+ > deno run --allow-net --allow-env --allow-read --unstable app.js
+Database URL:
+undefined
+Port:
+NaN
+error: Uncaught (in promise) InvalidData: data did not match any variant of untagged enum ArgsEnum
 ```
 
 
