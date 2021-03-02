@@ -3,9 +3,10 @@
 This is the self-monitoring app for Aalto WSD course project.
 This app was created by Jere Hirviniemi.
 
-The app is currently NOT deployed anywhere like Heroku.
+The app is running here:
+http://wsd-report-app.herokuapp.com/
 
-Otherwise the app closely follows the requirements listed here:
+The app closely follows the requirements listed here:
 https://wsd.cs.aalto.fi/web-software-development/99-course-project/
 
 I find detailed documentation useless, as the user can check how the app works from the link above.
