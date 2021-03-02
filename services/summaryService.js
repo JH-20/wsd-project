@@ -32,17 +32,17 @@ const get7daySummary = async() => {
   if (!morning || morning.rowCount === 0) {
     morning = null_morning
   } else {
-    morning = morning.rowsOfObjects()[0]
+    morning = morning.rows[0]
   }
   if (!evening || evening.rowCount === 0) {
     evening = null_evening
   } else {
-    evening = evening.rowsOfObjects()[0]
+    evening = evening.rows[0]
   }
   if (!totalmood || totalmood.rowCount === 0) {
     totalmood = {average_mood_whole_day: null}
   } else {
-    totalmood = totalmood.rowsOfObjects()[0]
+    totalmood = totalmood.rows[0]
   }
   
   const summary = {
@@ -65,17 +65,17 @@ const getDaySummary = async(year, month, day) => {
   if (!morning || morning.rowCount === 0) {
     morning = null_morning
   } else {
-    morning = morning.rowsOfObjects()[0]
+    morning = morning.rows[0]
   }
   if (!evening || evening.rowCount === 0) {
     evening = null_evening
   } else {
-    evening = evening.rowsOfObjects()[0]
+    evening = evening.rows[0]
   }
   if (!totalmood || totalmood.rowCount === 0) {
     totalmood = {average_mood_whole_day: null}
   } else {
-    totalmood = totalmood.rowsOfObjects()[0]
+    totalmood = totalmood.rows[0]
   }
   
   const summary = {
@@ -108,17 +108,17 @@ const getUserWeekSummary = async(user_id, year, week) => {
   if (!morning || morning.rowCount === 0) {
     morning = null_morning
   } else {
-    morning = morning.rowsOfObjects()[0]
+    morning = morning.rows[0]
   }
   if (!evening || evening.rowCount === 0) {
     evening = null_evening
   } else {
-    evening = evening.rowsOfObjects()[0]
+    evening = evening.rows[0]
   }
   if (!totalmood || totalmood.rowCount === 0) {
     totalmood = {average_mood_whole_day: null}
   } else {
-    totalmood = totalmood.rowsOfObjects()[0]
+    totalmood = totalmood.rows[0]
   }
   
   const summary = {
@@ -151,17 +151,17 @@ const getUserMonthSummary = async(user_id, year, month) => {
   if (!morning || morning.rowCount === 0) {
     morning = null_morning
   } else {
-    morning = morning.rowsOfObjects()[0]
+    morning = morning.rows[0]
   }
   if (!evening || evening.rowCount === 0) {
     evening = null_evening
   } else {
-    evening = evening.rowsOfObjects()[0]
+    evening = evening.rows[0]
   }
   if (!totalmood || totalmood.rowCount === 0) {
     totalmood = {average_mood_whole_day: null}
   } else {
-    totalmood = totalmood.rowsOfObjects()[0]
+    totalmood = totalmood.rows[0]
   }
 
   const summary = {
@@ -180,7 +180,7 @@ const getUserMood = async(user_id, year, month, day) => {
   if (!totalmood || totalmood.rowCount === 0) {
     totalmood = {average_mood_whole_day: null}
   } else {
-    totalmood = totalmood.rowsOfObjects()[0]
+    totalmood = totalmood.rows[0]
   }
   return totalmood.average_mood_whole_day
 }

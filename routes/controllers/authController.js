@@ -21,7 +21,7 @@ const post_login = async({request, response, render, session}) => {
   }
 
   // take the first row from the results
-  const userObj = res.rowsOfObjects()[0];
+  const userObj = res.rows[0];
 
   const hash = userObj.password;
 

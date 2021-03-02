@@ -9,7 +9,7 @@ const executeQuery = async(query, ...args) => {
   const client = getClient();
   try {
     await client.connect();
-    return await client.queryArray(query, ...args);
+    return await client.queryObject(query, ...args);
   } catch (e) {
     console.log(e);
   } finally {
